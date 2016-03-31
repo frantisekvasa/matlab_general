@@ -1,4 +1,4 @@
-function [b] = custom_boxplot(data,med_col,box_col,mrk_col,mrk_type,lwd,resc,x_lab,y_lab,fsize,fsize2,varargin)
+function [f,b] = custom_boxplot(data,med_col,box_col,mrk_col,mrk_type,lwd,resc,x_lab,y_lab,fsize,fsize2,varargin)
 
 % function for custom boxplots - especially to modify colors
 %
@@ -45,6 +45,7 @@ if nargin < 4; mrk_col = repmat([1 0 0],[nd 1]); end % red
 if nargin < 3; box_col = repmat([1 1 1],[nd 1]); end % black
 if nargin < 2; med_col = [1 0 0]; end % red
 
+f = figure
 b = boxplot(data,'labels',x_lab,'symbol','k.','widths',0.5); % setting labels as blank is the easiest way to "remove" them
 
 % change colors of boxplot patches
