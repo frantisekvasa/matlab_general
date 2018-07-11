@@ -101,8 +101,8 @@ end
 % this is set "heuristically, as the square root of the mean binary density
 % across participants", and "this procedure [is] carried out separately
 % for inter- and intra-hemispheric edges"
-nbins_w = round(sqrt(mean(hemiw_dens(setdiff(1:ns,id_rm))))); % within
-nbins_b = round(sqrt(mean(hemib_dens(setdiff(1:ns,id_rm))))); % between
+nbins_w = round(sqrt(mean(hemiw_dens))); % within
+nbins_b = round(sqrt(mean(hemib_dens))); % between
 
 % "distance" matrices (to be thresholded)
 dist_w = zeros(nroi); dist_w(hemiw_id) = dist(hemiw_id); % within
@@ -137,7 +137,7 @@ for b = 1:nbins_b
     cut_l = qnt_b(b);
 end
 
-cons_mat_b = sum(logical(mat_all,3)); % matrix of (binary) edge consistency
+cons_mat_b = sum(logical(mat_all),3); % matrix of (binary) edge consistency
 
 % perform binning
 % as in Misic, Betzel et al Neuron 2015: "if the mean number of edges
